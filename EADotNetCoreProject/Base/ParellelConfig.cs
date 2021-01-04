@@ -11,7 +11,6 @@ namespace EAAutoFramework.Base
 {
     public class ParallelConfig
     {
-
         public RemoteWebDriver Driver { get; set; }
 
         public BasePage CurrentPage { get; set; }
@@ -22,6 +21,5 @@ namespace EAAutoFramework.Base
 
             return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot, Name).Build();
         }
-
     }
 }

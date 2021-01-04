@@ -10,7 +10,6 @@ namespace EAAutoFramework.Config
 {
     public class Settings
     {
-
         public static int Timeout { get; set; }
 
         public static string  IsReporting { get; set; }

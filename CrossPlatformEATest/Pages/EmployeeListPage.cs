@@ -12,26 +12,26 @@ namespace EAEmployeeTest.Pages
 
         }
 
-        IWebElement txtSearch => _parallelConfig.Driver.FindElement(By.Name("searchTerm"));
+        IWebElement txtSearch => parallelConfig.Driver.FindElement(By.Name("searchTerm"));
 
-        IWebElement lnkCreateNew => _parallelConfig.Driver.FindElement(By.LinkText("Create New"));
+        IWebElement lnkCreateNew => parallelConfig.Driver.FindElement(By.LinkText("Create New"));
 
-        IWebElement lnkCreateNewss => _parallelConfig.Driver.FindElement(By.LinkText("Create Newsssssss"));
+        IWebElement lnkCreateNewss => parallelConfig.Driver.FindElement(By.LinkText("Create Newsssssss"));
 
-        IWebElement tblEmployeeList => _parallelConfig.Driver.FindElement(By.ClassName("table"));
+        IWebElement tblEmployeeList => parallelConfig.Driver.FindElement(By.ClassName("table"));
 
-        IWebElement lnkLogoff => _parallelConfig.Driver.FindElement(By.LinkText("Log off"));
+        IWebElement lnkLogoff => parallelConfig.Driver.FindElement(By.LinkText("Log off"));
 
         public CreateEmployeePage ClickCreateNew()
         {
             lnkCreateNew.Click();
-            return new CreateEmployeePage(_parallelConfig);
+            return new CreateEmployeePage(parallelConfig);
         }
 
         public CreateEmployeePage ClickCreateNews()
         {
             lnkCreateNewss.Click();
-            return new CreateEmployeePage(_parallelConfig);
+            return new CreateEmployeePage(parallelConfig);
         }
 
 

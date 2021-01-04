@@ -18,30 +18,31 @@ namespace EAAutoFramework.Extensions
 
         public static void WaitForCondition<T>(this T obj, Func<T, bool> condition, int timeOut)
         {
-            Func<T, bool> execute =
-                (arg) =>
+            bool execute(T arg)
+            {
+                try
                 {
-                    try
-                    {
-                        return condition(arg);
-                    }
-                    catch (Exception e)
-                    {
-                        return false;
-                    }
-                };
+                    return condition(arg);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Error Message {e.Message}");
+                    return false;
+                }
+            }
 
             var stopWatch = Stopwatch.StartNew();
             LoopingWait(obj, timeOut, execute, stopWatch);
 
-            static void LoopingWait<T>(T obj, int timeOut, Func<T, bool> execute, Stopwatch stopWatch)
+        }
+
+        private static void LoopingWait<T>(T obj, int timeOut, Func<T, bool> execute, Stopwatch stopWatch)
+        {
+            while (stopWatch.ElapsedMilliseconds < timeOut)
             {
-                while (stopWatch.ElapsedMilliseconds < timeOut)
+                if (execute(obj))
                 {
-                    if (execute(obj))
-                    {
-                        break;
-                    }
+                    break;
                 }
             }
         }
@@ -57,7 +58,7 @@ namespace EAAutoFramework.Extensions
             }
             catch (Exception e)
             {
-                throw new ElementNotVisibleException($"Element not found : {element}");
+                throw new ElementNotVisibleException($"Element not found : {element}. Error Message {e.Message}");
             }
             return null;
         }
@@ -73,7 +74,7 @@ namespace EAAutoFramework.Extensions
             }
             catch (Exception e)
             {
-                throw new ElementNotVisibleException($"Element not found : {element}");
+                throw new ElementNotVisibleException($"Element not found : {element}. Error Message {e.Message}");
             }
             return null;
         }
@@ -89,7 +90,7 @@ namespace EAAutoFramework.Extensions
             }
             catch (Exception e)
             {
-                throw new ElementNotVisibleException($"Element not found : {element}");
+                throw new ElementNotVisibleException($"Element not found : {element}. Error Message {e.Message}");
             }
             return null;
         }
@@ -105,7 +106,7 @@ namespace EAAutoFramework.Extensions
             }
             catch (Exception e)
             {
-                throw new ElementNotVisibleException($"Element not found : {element}");
+                throw new ElementNotVisibleException($"Element not found : {element}. Error Message {e.Message}");
             }
             return null;
         }

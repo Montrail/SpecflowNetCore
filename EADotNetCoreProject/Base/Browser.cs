@@ -10,7 +10,6 @@
         }
 
         public BrowserType Type { get; set; }
-
     }
 
     public enum BrowserType

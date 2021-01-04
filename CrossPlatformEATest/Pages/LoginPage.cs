@@ -10,13 +10,13 @@ namespace EAEmployeeTest.Pages
         public LoginPage(ParallelConfig parallelConfig) : base(parallelConfig) { }
 
 
-        IWebElement txtUserName => _parallelConfig.Driver.FindById("UserName");
+        IWebElement txtUserName => parallelConfig.Driver.FindById("UserName");
 
-        IWebElement txtPassword => _parallelConfig.Driver.FindById("Password");
+        IWebElement txtPassword => parallelConfig.Driver.FindById("Password");
 
-        IWebElement btnLogin => _parallelConfig.Driver.FindByCss("input.btn");
+        IWebElement btnLogin => parallelConfig.Driver.FindByCss("input.btn");
 
-        IWebElement btnLoginss => _parallelConfig.Driver.FindByCss("input.btnssss");
+        IWebElement btnLoginss => parallelConfig.Driver.FindByCss("input.btnssss");
 
 
         public void Login(string userName, string password)
@@ -29,7 +29,7 @@ namespace EAEmployeeTest.Pages
         public HomePage ClickLoginButton()
         {
             btnLogin.Submit();
-            return new HomePage(_parallelConfig);
+            return new HomePage(parallelConfig);
         }
 
 
@@ -41,7 +41,7 @@ namespace EAEmployeeTest.Pages
         internal BasePage ClickLoginButtons()
         {
             btnLoginss.Submit();
-            return new HomePage(_parallelConfig);
+            return new HomePage(parallelConfig);
         }
     }
 }

@@ -28,9 +28,9 @@ namespace CrossPlatformEATest.Steps
         public void ThenIShouldSeeTheUsernameWithHello()
         {
             if (_parallelConfig.CurrentPage.As<HomePage>().GetLoggedInUser().Contains("admin"))
-                System.Console.WriteLine("Sucess login");
+                System.Console.WriteLine("Success login");
             else
-                System.Console.WriteLine("Unsucessful login");
+                System.Console.WriteLine("Unsuccessful login");
         }
 
         [Then(@"I click logout")]

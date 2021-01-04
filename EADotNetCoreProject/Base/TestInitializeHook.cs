@@ -12,14 +12,12 @@ namespace EAAutoFramework.Base
 {
     public class TestInitializeHook : Steps
     {
-
         private readonly ParallelConfig _parallelConfig;
 
         public TestInitializeHook(ParallelConfig parallelConfig)
         {
             _parallelConfig = parallelConfig;
         }
-
 
         public void InitializeSettings()
         {
@@ -33,7 +31,6 @@ namespace EAAutoFramework.Base
             OpenBrowser(GetBrowserOption(Settings.BrowserType));
 
             LogHelpers.Write("Initialized framework");
-
         }
 
         private void OpenBrowser(DriverOptions driverOptions)
@@ -62,7 +59,6 @@ namespace EAAutoFramework.Base
             //DriverContext.Browser.GoToUrl(Settings.AUT);
             LogHelpers.Write("Opened the browser !!!");
         }
-
 
         public DriverOptions GetBrowserOption(BrowserType browserType)
         {

@@ -73,7 +73,5 @@ namespace EAEmployeeTest.Steps
         {
             _parallelConfig.CurrentPage.As<EmployeeListPage>().ClickLogoff();
         }
-
-
     }
 }

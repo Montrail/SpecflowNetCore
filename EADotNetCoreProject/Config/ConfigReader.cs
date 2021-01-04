@@ -9,14 +9,11 @@ namespace EAAutoFramework.Config
     {
         public static void SetFrameworkSettings()
         {
-
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json");
 
-
             IConfigurationRoot configurationRoot = builder.Build();
-
 
             Settings.AUT = configurationRoot.GetSection("testSettings").Get<TestSettings>().AUT;
             Settings.TestType = configurationRoot.GetSection("testSettings").Get<TestSettings>().TestType;
@@ -25,8 +22,6 @@ namespace EAAutoFramework.Config
             Settings.LogPath = configurationRoot.GetSection("testSettings").Get<TestSettings>().LogPath;
             Settings.AppConnectionString = configurationRoot.GetSection("testSettings").Get<TestSettings>().AUTConnectionString;
             Settings.BrowserType = configurationRoot.GetSection("testSettings").Get<TestSettings>().Browser;
-
         }
-
     }
 }

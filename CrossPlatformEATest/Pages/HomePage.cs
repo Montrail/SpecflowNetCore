@@ -14,13 +14,13 @@ namespace EAEmployeeTest.Pages
 
         }
 
-        IWebElement lnkLogin => _parallelConfig.Driver.FindByLinkText("Login");
+        IWebElement lnkLogin => parallelConfig.Driver.FindByLinkText("Login");
 
-        IWebElement lnkEmployeeList => _parallelConfig.Driver.FindByLinkText("Employee List");
+        IWebElement lnkEmployeeList => parallelConfig.Driver.FindByLinkText("Employee List");
 
-        IWebElement lnkLoggedInUser => _parallelConfig.Driver.FindByXpath("//a[@title='Manage']");
+        IWebElement lnkLoggedInUser => parallelConfig.Driver.FindByXpath("//a[@title='Manage']");
 
-        IWebElement lnkLogoff => _parallelConfig.Driver.FindByLinkText("Log off");
+        IWebElement lnkLogoff => parallelConfig.Driver.FindByLinkText("Log off");
 
 
         internal void CheckIfLoginExist()
@@ -32,7 +32,7 @@ namespace EAEmployeeTest.Pages
         internal LoginPage ClickLogin()
         {
             lnkLogin.Click();
-            return new LoginPage(_parallelConfig);
+            return new LoginPage(parallelConfig);
         }
 
         internal string GetLoggedInUser()
@@ -43,13 +43,13 @@ namespace EAEmployeeTest.Pages
         public EmployeeListPage ClickEmployeeList()
         {
             lnkEmployeeList.Click();
-            return new EmployeeListPage(_parallelConfig);
+            return new EmployeeListPage(parallelConfig);
         }
 
         public LoginPage ClickLogOff()
         {
             lnkLogoff.Click();
-            return new LoginPage(_parallelConfig);
+            return new LoginPage(parallelConfig);
         }
     }
 }

@@ -4,12 +4,11 @@ namespace EAAutoFramework.Base
 {
     public class Base
     {
-
-        public readonly ParallelConfig _parallelConfig;
+        public readonly ParallelConfig parallelConfig;
 
         public Base(ParallelConfig parellelConfig)
         {
-            _parallelConfig = parellelConfig;
+            parallelConfig = parellelConfig;
         }
 
         protected TPage GetInstance<TPage>() where TPage : BasePage, new()

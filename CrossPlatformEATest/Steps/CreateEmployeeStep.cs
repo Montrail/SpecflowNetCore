@@ -22,7 +22,6 @@ namespace CrossPlatformEATest.Steps
             dynamic data = table.CreateDynamicInstance();
             _parallelConfig.CurrentPage.As<CreateEmployeePage>().CreateEmployee(data.Name,
                 data.Salary.ToString(), data.DurationWorked.ToString(), data.Grade.ToString(), data.Email);
-
         }
 
         [Then(@"I create and delete user")]
@@ -30,7 +29,5 @@ namespace CrossPlatformEATest.Steps
         {
             //ScenarioContext.Current.Pending();
         }
-
-
     }
 }

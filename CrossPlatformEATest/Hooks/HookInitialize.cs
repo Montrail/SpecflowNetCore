@@ -6,12 +6,11 @@ using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using AventStack.ExtentReports.Gherkin.Model;
 using NUnit.Framework;
+
 //Same parallel
 [assembly: Parallelizable(ParallelScope.Fixtures)]
-
 namespace CrossPlatformEATest.Hooks
 {
-
     [Binding]
     public class HookInitialize : TestInitializeHook
     {
@@ -28,17 +27,13 @@ namespace CrossPlatformEATest.Hooks
             _scenarioContext = scenarioContext;
         }
 
-
-
         private static ExtentTest featureName;
         private static ExtentReports extent;
         private static ExtentKlovReporter klov;
 
-
         [AfterStep]
         public void AfterEachStep()
         {
-
             var stepType = _scenarioContext.StepContext.StepInfo.StepDefinitionType.ToString();
 
             if (_scenarioContext.TestError == null)
@@ -72,7 +67,6 @@ namespace CrossPlatformEATest.Hooks
                     _currentScenarioName.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Definition Pending");
                 else if (stepType == "Then")
                     _currentScenarioName.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Definition Pending");
-
             }
         }
 
@@ -86,7 +80,7 @@ namespace CrossPlatformEATest.Hooks
             var htmlReporter = new ExtentHtmlReporter(@"C:\extentreport\SeleniumWithSpecflow\SpecflowParallelTest\ExtentReport.html");
             htmlReporter.Config.Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
             //Attach report to reporter
-            extent = new AventStack.ExtentReports.ExtentReports();
+            extent = new ExtentReports();
             klov = new ExtentKlovReporter();
 
             //klov.InitMongoDbConnection("localhost", 27017);
@@ -102,7 +96,6 @@ namespace CrossPlatformEATest.Hooks
             extent.AttachReporter(htmlReporter);
         }
 
-
         [BeforeScenario]
         public void Initialize()
         {
@@ -116,12 +109,9 @@ namespace CrossPlatformEATest.Hooks
             _currentScenarioName = featureName.CreateNode<Scenario>(_scenarioContext.ScenarioInfo.Title);
         }
 
-
-
         [AfterScenario]
         public void TestStop()
         {
-            //DriverContext.Driver.Quit();
             //Flush report once test completes
             _parallelConfig.Driver.Quit();
         }
@@ -131,9 +121,6 @@ namespace CrossPlatformEATest.Hooks
         {
             //Flush report once test completes
             extent.Flush();
-
         }
-
-
     }
 }

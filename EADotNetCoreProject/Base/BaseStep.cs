@@ -11,10 +11,6 @@ namespace EAAutoFramework.Base
 {
     public class BaseStep : Base
     {
-        public BaseStep(ParallelConfig parellelConfig) : base(parellelConfig)
-        {
-        }
-
-      
+        public BaseStep(ParallelConfig parellelConfig) : base(parellelConfig) { }
     }
 }
